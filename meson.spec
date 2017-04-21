@@ -4,11 +4,15 @@ Version:	0.39.1
 Release:	1
 License:	Apache v2.0
 Group:		Applications
-Source0:	https://github.com/mesonbuild/meson/releases/download/0.39.1/%{name}-%{version}.tar.gz
+Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	7f5381985c6f6de46addc8ffdf5719a4
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
 BuildRequires:	python3 >= 1:3.4
+BuildRequires:	python3-modules
+BuildRequires:	python3-setuptools
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,7 +29,6 @@ coverage reports, Valgrind, CCache and the like.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %py3_install
 
 %clean
