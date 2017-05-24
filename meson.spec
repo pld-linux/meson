@@ -1,11 +1,11 @@
 Summary:	High productivity build system
 Name:		meson
-Version:	0.39.1
+Version:	0.40.1
 Release:	1
 License:	Apache v2.0
 Group:		Applications
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	7f5381985c6f6de46addc8ffdf5719a4
+# Source0-md5:	8475b19d5f5f3bd5c40f4bb1f31b93f3
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
 BuildRequires:	python3 >= 1:3.4
