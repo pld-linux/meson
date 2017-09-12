@@ -1,0 +1,11 @@
+--- meson-0.42.1/mesonbuild/scripts/gtkdochelper.py.pathfix	2017-09-12 21:21:54.832059192 +0200
++++ meson-0.42.1/mesonbuild/scripts/gtkdochelper.py	2017-09-12 21:22:03.258725859 +0200
+@@ -226,7 +226,7 @@ def run(args):
+         install_gtkdoc(options.builddir,
+                        options.subdir,
+                        install_prefix,
+-                       'share/gtk-doc/html',
++                       'share/doc/gtk-doc/html',
+                        install_dir)
+     return 0
+ 

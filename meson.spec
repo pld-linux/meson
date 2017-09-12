@@ -1,13 +1,14 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	0.40.1
-Release:	2
+Version:	0.42.1
+Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	8475b19d5f5f3bd5c40f4bb1f31b93f3
+# Source0-md5:	a8ff06ab5e138dec64cbfa249ff4f8bb
+Patch0:		%{name}-gtkdocdir.patch
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
 BuildRequires:	python3 >= 1:3.4
@@ -32,6 +33,7 @@ takich jak testy jednostkowe, raporty pokrycia, Valgrind, CCache itp.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
 	meson.py mesonconf.py mesonintrospect.py mesontest.py wraptool.py
@@ -47,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc authors.txt contributing.txt README.md
+%doc contributing.txt README.md
 %attr(755,root,root) %{_bindir}/meson
 %attr(755,root,root) %{_bindir}/mesonconf
 %attr(755,root,root) %{_bindir}/mesonintrospect
