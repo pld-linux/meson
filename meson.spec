@@ -2,7 +2,7 @@ Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
 Version:	0.46.1
-Release:	3
+Release:	4
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
@@ -17,6 +17,7 @@ BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
+Requires:	python3-devel-tools >= 1:3.5
 Requires:	python3-libs >= 1:3.5
 Requires:	python3-modules >= 1:3.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
