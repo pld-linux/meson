@@ -1,13 +1,13 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	0.46.1
-Release:	6
+Version:	0.47.1
+Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	1698f6526574839de5dcdc45e3f7d582
+# Source0-md5:	5ed95fd4e9c7634f7cf3482d352804e7
 Patch0:		%{name}-gtkdocdir.patch
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
@@ -34,6 +34,20 @@ produktywności programisty. Celem jest dostarczenie prostej, od razu
 działającej obsługi nowoczesnych narzędzi i praktyk programistycznych,
 takich jak testy jednostkowe, raporty pokrycia, Valgrind, CCache itp.
 
+%package polkit
+Summary:	PolKit integration - handle projects installation via Meson
+Summary(pl.UTF-8):	Integracja z PolKitem - obsługa instalowania projektów przy użyciu Mesona
+Group:		Development/Tools
+Requires:	%{name} = %{version}-%{release}
+Requires:	polkit
+
+%description polkit
+PolKit integration - handle projects installation via Meson.
+
+%description polkit -l pl.UTF-8
+Integracja z PolKitem - obsługa instalowania projektów przy użyciu
+Mesona.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -45,6 +59,7 @@ takich jak testy jednostkowe, raporty pokrycia, Valgrind, CCache itp.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %py3_install
 
 %clean
@@ -65,3 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/wraptool.1*
 %{py3_sitescriptdir}/meson-%{version}-py*.egg-info
 %{py3_sitescriptdir}/mesonbuild
+
+%files polkit
+%defattr(644,root,root,755)
+%{_datadir}/polkit-1/actions/com.mesonbuild.install.policy
