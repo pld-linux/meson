@@ -1,13 +1,13 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	0.47.2
+Version:	0.48.0
 Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	31bda3519d8c0eb3438267268a78085e
+# Source0-md5:	e92273538c6b8371e68d736287a5d991
 Patch0:		%{name}-gtkdocdir.patch
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
@@ -53,7 +53,8 @@ Mesona.
 %patch0 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
-	meson.py mesonconf.py mesonintrospect.py mesontest.py wraptool.py
+	meson.py
+
 %build
 %py3_build
 
@@ -69,15 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %{_bindir}/meson
-%attr(755,root,root) %{_bindir}/mesonconf
-%attr(755,root,root) %{_bindir}/mesonintrospect
-%attr(755,root,root) %{_bindir}/mesontest
-%attr(755,root,root) %{_bindir}/wraptool
 %{_mandir}/man1/meson.1*
-%{_mandir}/man1/mesonconf.1*
-%{_mandir}/man1/mesonintrospect.1*
-%{_mandir}/man1/mesontest.1*
-%{_mandir}/man1/wraptool.1*
 %{py3_sitescriptdir}/meson-%{version}-py*.egg-info
 %{py3_sitescriptdir}/mesonbuild
 
