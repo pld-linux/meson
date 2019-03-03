@@ -21,6 +21,7 @@ BuildRequires:	sed >= 4.0
 Requires:	python3-devel-tools >= 1:3.5
 Requires:	python3-libs >= 1:3.5
 Requires:	python3-modules >= 1:3.5
+Requires:	python3-setuptools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
