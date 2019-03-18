@@ -1,0 +1,25 @@
+--- meson-0.50.0/mesonbuild/compilers/c.py.orig	2019-02-28 21:43:18.000000000 +0100
++++ meson-0.50.0/mesonbuild/compilers/c.py	2019-03-17 16:19:08.275202577 +0100
+@@ -425,10 +425,8 @@
+             for_machine = MachineChoice.BUILD
+         else:
+             for_machine = MachineChoice.HOST
+-        if mode == 'preprocess':
+-            # Add CPPFLAGS from the env.
+-            args += env.coredata.get_external_preprocess_args(for_machine, self.language)
+-        elif mode == 'compile':
++        # 'link' mode contains also 'compile' stage
++        if mode in {'compile', 'link'}:
+             # Add CFLAGS/CXXFLAGS/OBJCFLAGS/OBJCXXFLAGS from the env
+             sys_args = env.coredata.get_external_args(for_machine, self.language)
+             # Apparently it is a thing to inject linker flags both
+@@ -437,6 +435,9 @@
+             # argument checks. Thanks, Autotools.
+             cleaned_sys_args = self.remove_linkerlike_args(sys_args)
+             args += cleaned_sys_args
++        if mode == 'preprocess':
++            # Add CPPFLAGS from the env.
++            args += env.coredata.get_external_preprocess_args(for_machine, self.language)
+         elif mode == 'link':
+             # Add LDFLAGS from the env
+             args += env.coredata.get_external_link_args(for_machine, self.language)
