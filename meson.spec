@@ -2,7 +2,7 @@ Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
 Version:	0.52.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
@@ -55,7 +55,8 @@ Mesona.
 %patch0 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
-	meson.py
+	meson.py \
+	mesonbuild/cmake/data/run_ctgt.py
 
 %build
 %py3_build
