@@ -11,15 +11,15 @@ Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name
 Patch0:		%{name}-gtkdocdir.patch
 URL:		http://mesonbuild.com/
 BuildRequires:	ninja >= 1.5
-BuildRequires:	python3 >= 1:3.5
-BuildRequires:	python3-modules >= 1:3.5
+BuildRequires:	python3 >= 1:3.5.2
+BuildRequires:	python3-modules >= 1:3.5.2
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
-Requires:	python3-devel-tools >= 1:3.5
-Requires:	python3-libs >= 1:3.5
-Requires:	python3-modules >= 1:3.5
+Requires:	python3-devel-tools >= 1:3.5.2
+Requires:	python3-libs >= 1:3.5.2
+Requires:	python3-modules >= 1:3.5.2
 Requires:	python3-setuptools
 Conflicts:	ninja < 1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
