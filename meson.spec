@@ -1,28 +1,27 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	0.57.1
-Release:	2
+Version:	0.59.0
+Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	fbd744560351491892478a36a1586815
+# Source0-md5:	bb8bf3898afefc8272989e4be8ff0a5b
 Patch0:		%{name}-gtkdocdir.patch
-Patch1:		%{name}-cmake_deps.patch
 URL:		http://mesonbuild.com/
-BuildRequires:	ninja >= 1.7
-BuildRequires:	python3 >= 1:3.5.2
-BuildRequires:	python3-modules >= 1:3.5.2
+BuildRequires:	ninja >= 1.8.2
+BuildRequires:	python3 >= 1:3.6
+BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	sed >= 4.0
-Requires:	python3-devel-tools >= 1:3.5.2
-Requires:	python3-libs >= 1:3.5.2
-Requires:	python3-modules >= 1:3.5.2
+Requires:	python3-devel-tools >= 1:3.6
+Requires:	python3-libs >= 1:3.6
+Requires:	python3-modules >= 1:3.6
 Requires:	python3-setuptools
-Conflicts:	ninja < 1.7
+Conflicts:	ninja < 1.8.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,7 +54,6 @@ Mesona.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
 	meson.py

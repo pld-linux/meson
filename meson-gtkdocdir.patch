@@ -5,8 +5,8 @@ diff -urN meson-0.46.1/mesonbuild/modules/gnome.py meson-0.46.1.new/mesonbuild/m
          modulename = args[0]
          if not isinstance(modulename, str):
              raise MesonException('Argument must be a string')
--        return ModuleReturnValue(os.path.join('share/gtk-doc/html', modulename), [])
-+        return ModuleReturnValue(os.path.join('share/doc/gtk-doc/html', modulename), [])
+-        return os.path.join('share/gtk-doc/html', modulename)
++        return os.path.join('share/doc/gtk-doc/html', modulename)
  
      @staticmethod
      def _unpack_args(arg, kwarg_name, kwargs, expend_file_state=None):
