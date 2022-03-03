@@ -1,15 +1,14 @@
-diff -urN meson-0.46.1/mesonbuild/modules/gnome.py meson-0.46.1.new/mesonbuild/modules/gnome.py
---- meson-0.46.1/mesonbuild/modules/gnome.py	2018-05-16 18:23:56.000000000 +0200
-+++ meson-0.46.1.new/mesonbuild/modules/gnome.py	2018-06-19 22:19:00.491036568 +0200
-@@ -854,7 +854,7 @@
-         modulename = args[0]
-         if not isinstance(modulename, str):
-             raise MesonException('Argument must be a string')
--        return os.path.join('share/gtk-doc/html', modulename)
-+        return os.path.join('share/doc/gtk-doc/html', modulename)
+--- meson-0.61.2/mesonbuild/modules/gnome.py.orig	2022-03-02 21:17:14.811136886 +0100
++++ meson-0.61.2/mesonbuild/modules/gnome.py	2022-03-02 21:17:50.327611143 +0100
+@@ -1444,7 +1444,7 @@ class GnomeModule(ExtensionModule):
+     @noKwargs
+     @typed_pos_args('gnome.gtkdoc_html_dir', str)
+     def gtkdoc_html_dir(self, state: 'ModuleState', args: T.Tuple[str], kwargs: 'TYPE_kwargs') -> str:
+-        return os.path.join('share/gtk-doc/html', args[0])
++        return os.path.join('share/doc/gtk-doc/html', args[0])
  
-     @staticmethod
-     def _unpack_args(arg, kwarg_name, kwargs, expend_file_state=None):
+     @typed_pos_args('gnome.gdbus_codegen', str, optargs=[(str, mesonlib.File)])
+     @typed_kwargs(
 diff -urN meson-0.46.1/mesonbuild/scripts/gtkdochelper.py meson-0.46.1.new/mesonbuild/scripts/gtkdochelper.py
 --- meson-0.46.1/mesonbuild/scripts/gtkdochelper.py	2018-05-16 18:23:56.000000000 +0200
 +++ meson-0.46.1.new/mesonbuild/scripts/gtkdochelper.py	2018-06-19 22:18:27.554479460 +0200
