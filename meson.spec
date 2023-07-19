@@ -1,13 +1,13 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	1.0.1
+Version:	1.2.0
 Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	843ba549bb2a199d9e04092116a7e749
+# Source0-md5:	677616183f2c5e03e2139b06280129a0
 Patch0:		%{name}-gtkdocdir.patch
 URL:		https://mesonbuild.com/
 BuildRequires:	ninja >= 1.8.2
