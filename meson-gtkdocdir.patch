@@ -7,7 +7,7 @@
 -        return os.path.join('share/gtk-doc/html', args[0])
 +        return os.path.join('share/doc/gtk-doc/html', args[0])
  
-     @typed_pos_args('gnome.gdbus_codegen', str, optargs=[(str, mesonlib.File, build.CustomTarget, build.CustomTargetIndex, build.GeneratedList)])
+     @typed_pos_args('gnome.gdbus_codegen', str, optargs=[(str, mesonlib.File, CustomTarget, CustomTargetIndex, GeneratedList)])
      @typed_kwargs(
 diff -urN meson-0.46.1/mesonbuild/scripts/gtkdochelper.py meson-0.46.1.new/mesonbuild/scripts/gtkdochelper.py
 --- meson-0.46.1/mesonbuild/scripts/gtkdochelper.py	2018-05-16 18:23:56.000000000 +0200
