@@ -30,7 +30,7 @@ index 73741a441..191db485d 100644
                  priv_dir = self.get_target_private_dir(lt)
                  commands += compiler.get_include_args(priv_dir, False)
 +        # filter out --target arguments for host only proc-macro crate
-+        if compiler.language == 'rust' and hasattr(target, 'rust_crate_type') and target.rust_crate_type == 'proc-macro':
++        if compiler.language == 'rust' and hasattr(target, 'for_machine') and target.for_machine == MachineChoice.BUILD:
 +            target_commands = []
 +            target_arg = False
 +            for (i, v) in enumerate(commands):
