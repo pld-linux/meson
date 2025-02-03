@@ -2,7 +2,7 @@ Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
 Version:	1.6.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
@@ -67,6 +67,9 @@ Mesona.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_rpmmacrodir}
+
+cp -p data/macros.meson $RPM_BUILD_ROOT%{_rpmmacrodir}
 
 %py3_install
 
@@ -80,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/meson.1*
 %{py3_sitescriptdir}/meson-%{version}-py*.egg-info
 %{py3_sitescriptdir}/mesonbuild
+%{_rpmmacrodir}/macros.meson
 
 %files polkit
 %defattr(644,root,root,755)
