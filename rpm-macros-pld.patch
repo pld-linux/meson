@@ -1,5 +1,5 @@
---- meson-1.6.1/data/macros.meson.orig	2024-12-16 21:34:40.000000000 +0100
-+++ meson-1.6.1/data/macros.meson	2025-02-06 21:07:08.380379917 +0100
+--- meson-1.8.1/data/macros.meson.orig	2025-05-23 23:51:05.000000000 +0200
++++ meson-1.8.1/data/macros.meson	2025-05-25 18:34:27.941441519 +0200
 @@ -1,6 +1,6 @@
  %__meson %{_bindir}/meson
  %__meson_wrap_mode nodownload
@@ -24,11 +24,12 @@
          %{?__meson_verbose:--verbose} \
          %{nil}}
  
-@@ -42,6 +43,6 @@
+@@ -42,7 +43,7 @@
  %meson_test \
      %{shrink:%{__meson} test \
          -C %{_vpath_builddir} \
 -        --num-processes %{_smp_build_ncpus} \
-+        %{?_smp_mflags}
++        %{?_smp_mflags} \
          --print-errorlogs \
          %{nil}}
+ 
