@@ -2,7 +2,7 @@ Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
@@ -12,6 +12,7 @@ Patch0:		%{name}-gtkdocdir.patch
 Patch1:		rust-proc-macro-filter-out-target.patch
 Patch2:		allow-arm-on-arm64.patch
 Patch3:		rpm-macros-pld.patch
+Patch4:		javac-selection.patch
 URL:		https://mesonbuild.com/
 BuildRequires:	ninja >= 1.8.2
 BuildRequires:	python3 >= 1:3.7
@@ -59,6 +60,7 @@ Mesona.
 %patch -P1 -p1
 %patch -P2 -p1 -R
 %patch -P3 -p1
+%patch -P4 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
 	meson.py

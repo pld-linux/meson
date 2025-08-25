@@ -1,0 +1,28 @@
+From 04cd0e2e0057146782df0085995408856ceff5d0 Mon Sep 17 00:00:00 2001
+From: Jan Palus <jpalus@fastmail.com>
+Date: Mon, 25 Aug 2025 14:10:37 +0200
+Subject: [PATCH] Allow explicit selection of Java compiler
+
+Makes Java more consistent with other compilers and allows explicit
+selection of Java compiler version and/or provider when building with
+Meson.
+---
+ docs/markdown/Reference-tables.md | 1 +
+ mesonbuild/envconfig.py           | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/mesonbuild/envconfig.py b/mesonbuild/envconfig.py
+index 43fad0cd2..c85d8da90 100644
+--- a/mesonbuild/envconfig.py
++++ b/mesonbuild/envconfig.py
+@@ -101,6 +101,7 @@ ENV_VAR_COMPILER_MAP: T.Mapping[str, str] = {
+     'rust': 'RUSTC',
+     'vala': 'VALAC',
+     'nasm': 'NASM',
++    'java': 'JAVAC',
+ 
+     # Linkers
+     'c_ld': 'CC_LD',
+-- 
+2.51.0
+
