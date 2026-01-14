@@ -13,17 +13,12 @@ unnecessarily fail due to attempting to run a sanity check executable.
  mesonbuild/environment.py | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/mesonbuild/environment.py b/mesonbuild/environment.py
-index be40dbcfd4be..f71bf219cf64 100644
---- a/mesonbuild/environment.py
-+++ b/mesonbuild/environment.py
-@@ -512,8 +512,7 @@ def machine_info_can_run(machine_info: MachineInfo):
+--- meson-1.10.0/mesonbuild/envconfig.py.orig	2025-12-08 17:48:52.000000000 +0100
++++ meson-1.10.0/mesonbuild/envconfig.py	2026-01-13 18:58:48.160305328 +0100
+@@ -750,4 +750,5 @@ def machine_info_can_run(machine_info: M
      return \
          (machine_info.cpu_family == true_build_cpu_family) or \
          ((true_build_cpu_family == 'x86_64') and (machine_info.cpu_family == 'x86')) or \
--        ((true_build_cpu_family == 'mips64') and (machine_info.cpu_family == 'mips')) or \
--        ((true_build_cpu_family == 'aarch64') and (machine_info.cpu_family == 'arm'))
-+        ((true_build_cpu_family == 'mips64') and (machine_info.cpu_family == 'mips'))
- 
- class Environment:
-     private_dir = 'meson-private'
+-        ((true_build_cpu_family == 'mips64') and (machine_info.cpu_family == 'mips'))
++        ((true_build_cpu_family == 'mips64') and (machine_info.cpu_family == 'mips')) or \
++        ((true_build_cpu_family == 'aarch64') and (machine_info.cpu_family == 'arm'))

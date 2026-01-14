@@ -1,13 +1,13 @@
 Summary:	High productivity build system
 Summary(pl.UTF-8):	System budowania o dużej produktywności
 Name:		meson
-Version:	1.8.1
-Release:	2
+Version:	1.10.0
+Release:	1
 License:	Apache v2.0
 Group:		Development/Tools
 #Source0Download: https://github.com/mesonbuild/meson/releases/
 Source0:	https://github.com/mesonbuild/meson/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	5cfd7e2b2246d874746d68ffd43a0774
+# Source0-md5:	fe7736c2b6dc4bae42a564f9a5d85f4b
 Patch0:		%{name}-gtkdocdir.patch
 Patch1:		rust-proc-macro-filter-out-target.patch
 Patch2:		allow-arm-on-arm64.patch
@@ -58,7 +58,7 @@ Mesona.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p1
-%patch -P2 -p1 -R
+%patch -P2 -p1
 %patch -P3 -p1
 %patch -P4 -p1
 
